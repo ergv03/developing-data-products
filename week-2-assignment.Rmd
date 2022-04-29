@@ -1,0 +1,25 @@
+---
+title: "Data-products-week2-assignment"
+author: "Elton Vieira"
+date: "April 29 2022"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+The Ópera de Arame, in Portuguese, or the Wire Opera House, in English, is a theatre house located in the city of Curitiba, the capital of the state of Paraná, in southern Brazil. It is one of the major tourist attractions of the city. The opera house, that was built in 75 days and opened on March 18, 1992, has a capacity of 2,400 spectators.
+
+```{r, eval=FALSE}
+library(leaflet)
+my_map <- leaflet() %>%
+  addTiles()
+
+my_map <- my_map %>%
+  addMarkers(lat=-25.3846, lng=-49.2762, popup='Curitiba Opera House')
+```
