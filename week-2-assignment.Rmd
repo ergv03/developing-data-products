@@ -1,25 +1,49 @@
 ---
-title: "Data-products-week2-assignment"
+title: "Data products: Week2 assignment"
 author: "Elton Vieira"
 date: "April 29 2022"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Leaflet Map
 
-The Ópera de Arame, in Portuguese, or the Wire Opera House, in English, is a theatre house located in the city of Curitiba, the capital of the state of Paraná, in southern Brazil. It is one of the major tourist attractions of the city. The opera house, that was built in 75 days and opened on March 18, 1992, has a capacity of 2,400 spectators.
+First a Leaflet map object is created, alongside the icon and pop-up objects that will be used.
 
-```{r, eval=FALSE}
+
+```{r}
 library(leaflet)
 my_map <- leaflet() %>%
   addTiles()
 
-my_map <- my_map %>%
-  addMarkers(lat=-25.3846, lng=-49.2762, popup='Curitiba Opera House')
+Icon <- makeIcon(
+   iconUrl = "https://upload.wikimedia.org/wikipedia/commons/5/57/OperaDeArame.WireOperaHouse.CuritibaBrasil.jpg",
+
+)
+
+PopUp <- c("<a href= 'https://en.wikipedia.org/wiki/Wire_Opera_House' >Curitiba Opera House<br><img src='https://upload.wikimedia.org/wikipedia/commons/5/57/OperaDeArame.WireOperaHouse.CuritibaBrasil.jpg' width='210' height='132'></a>")
+
 ```
+
+
+And then the map can be rendered by calling the map object with the proper latitude and longitude coordinates.
+
+
+```{r}
+
+my_map %>%
+  addTiles() %>%
+  addMarkers(lat=-25.3846, lng=-49.2762, popup=PopUp)
+
+```
+
+
+A little bit about the place presented in this map:
+
+The Ópera de Arame, in Portuguese, or the Wire Opera House, in English, is a theatre house located in the city of Curitiba, the capital of the state of Paraná, in southern Brazil. It is one of the major tourist attractions of the city. The opera house, that was built in 75 days and opened on March 18, 1992, has a capacity of 2,400 spectators.
+
